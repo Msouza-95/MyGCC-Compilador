@@ -7,17 +7,21 @@
  
 #define for(b) for(int i=0;i<b;i++)
 
-using namespace std; 
+using namespace std;
+
+
+void openFile(char* nameFile); 
+char nextCaracter(); 
 
 /*---------------------------Definindo tipo-----------------------------------*/
-	typedef struct token{
+	typedef struct tokens{
             int classe;//Classe do token
    			char valor[100];//Lexema
             int posicaoL;//Linha do lexema
     }token;
 /*----------------------------------------------------------------------------*/
   
-  char analise; // caracter a ser analisado 
+  char c; // caracter a ser analisado 
   int line=1; 
   int  initLexa =0; 
   int nextt = 0; // aponta para proximo
@@ -60,10 +64,10 @@ void openFile(char* nameFile){
 
 }
 
-void nextCaracter(){
+char nextCaracter(){
     
-    analise= vector[nextt];
-    if(analise=='\n'){
+    c= vector[nextt];
+    if(c=='\n'){
         line++; 
     }
 

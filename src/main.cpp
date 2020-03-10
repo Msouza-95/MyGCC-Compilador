@@ -4,7 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <buffer.hpp>
+#include <buffer.cpp>
+#include <lexo.h>
 
  
 #define for(b) for(int i=0;i<b;i++)
