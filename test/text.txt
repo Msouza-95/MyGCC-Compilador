@@ -7,8 +7,6 @@
 #   tok106 - !
 #   tok107 - &&
 #   tok108 - ||
-
-
 # tok2 - Delimitador
 #   tok200 - ;
 #   tok201 - (
@@ -17,15 +15,10 @@
 #   tok204 - }
 #   tok205 - [
 #   tok206 - ]
-
 # tok3 - Numero
 # tok300 - Numero Inteiro
 # tok301 - Numero Real
-
-
-
 # tok500 - Identificador
-
 # tok6 - Palavra reservada
 #   tok600 - FACA
 #   tok601 - ACABOU
@@ -34,6 +27,6 @@
 #   tok604 - INTEIRO
 #   tok605 - QUEBRADO
 #   tok606 - LOGICO
-#
+
 
 
