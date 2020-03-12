@@ -1,12 +1,17 @@
 
-
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <buffer.cpp>
-#include <lexo.h>
+#include "buffer.h"
 
+#include "lex.h"
+
+
+
+//#include "token.h"
+
+using namespace std;
  
 #define for(b) for(int i=0;i<b;i++)
 
@@ -21,7 +26,7 @@ using namespace std;
 int main()
 {
    
-       openFile("../test/text.txt"); // abre arquivo passado
+       openFile("text.txt"); // abre arquivo passado
 
 
    

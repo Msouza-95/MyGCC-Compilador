@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <buffer.cpp>
+#include <ctype.h>
+#include "token.h"
 
-#define for(b) for(int i=0;i<b;i++)
 
 
 
@@ -40,60 +40,57 @@ int automatos (int &partida)
    }
 }
 
-tokens nextToken(){
+tokens::nextToken(){
       tokens token; 
       int p; // contador 
       int estado =0; 
-      int partida= 0; 
-      int m=100; 
+   
+      /*int m=100; 
       for(m){
          token.valor[i]= NULL; 
 
       }
-
-
+*/
 
       while (1) // loop infinito 
       {
          switch (estado)
          {
          case 0: 
-                 /* c= nextCaracter(); 
+                  c= nextCaracter(); 
                   switch (c) {
-               case '=':
-                  estado = 7;
+               case '=': 
+                  estado = 68;
                   break;
                case ',':
                   estado = 4;
                   break;
                case '-':
                case '+':
-                  estado = 8;
-                  break;
                case '*':
                case '/':
-                  estado = 9;
+                  estado = 8;
                   break;
                case '&':
-                  estado = 12;
+                  estado = 11;
                   break;
                case '|':
-                  estado = 14;
+                  estado = 13;
                   break;
                case '!':
-                  estado = 16;
+                  estado = 15;
                   break;
                case ';':
-                  estado = 18;
+                  estado = 17;
                   break;
                case '(':
-                  estado = 19;
+                  estado = 18;
                   break;
                case ')':
-                  estado = 20;
+                  estado = 19;
                   break;
                case '#':
-                  estado = 21;
+                  estado = 20;
                   break;
                case EOF:
                   estado = c;
@@ -105,12 +102,12 @@ tokens nextToken(){
                   } else if (isdigit(c)) {
                      estado = 3;
                   } else if (isspace(c)) {
-                     if (c == '\n') {
+                    /* if (c == '\n') {
                         mColCount = 0;
                         ++mLinhaCount;
-                     }
-                     lexema.pop_back();
-                     break;
+                     }*/
+                     /*lexema.pop_back();
+                     break;*/
                   } else {
                     // erro 
                     estado =99;  
@@ -120,11 +117,42 @@ tokens nextToken(){
          case 1 :
                c= nextCaracter(); 
                if(isalpha(c))
+                  cout<< "aqui"; 
+         break; 
+         case 2: 
           
+          break;
+         
+         case 3: 
+          
+          break;
+         
+         case 4: 
+          
+          break;
+         
+         case 5: 
+          
+          break;
+         
+         case 6: 
+          
+          break;
+         
+         case 7: 
+               token.setValues(typeToken::op,c,1,2);
+               token.getLexema; 
+          break;
+         case 8: 
+          
+          break;
+         case 68: 
+            cout<< "foi"; 
+          break;
          
          default:
             break;
-         } */
+         } 
       }
       
 }

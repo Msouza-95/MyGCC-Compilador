@@ -1,24 +1,16 @@
-
 #include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <ctype.h>
 
- 
+
 #define for(b) for(int i=0;i<b;i++)
-
 using namespace std;
 
 
-void openFile(char* nameFile); 
-char nextCaracter(); 
+	
 
-/*---------------------------Definindo tipo-----------------------------------*/
-	typedef struct tokens{
-            int classe;//Classe do token
-   			char valor[100];//Lexema
-            int posicaoL;//Linha do lexema
-    }token;
 /*----------------------------------------------------------------------------*/
   
   char c; // caracter a ser analisado 
@@ -27,6 +19,8 @@ char nextCaracter();
   int nextt = 0; // aponta para proximo
   char *vector; // vetor com caracteres do arquivo 
 /* -------------------------------------------------------*/
+void openFile(char* nameFile); 
+char nextCaracter(); 
 
 
 void openFile(char* nameFile){
