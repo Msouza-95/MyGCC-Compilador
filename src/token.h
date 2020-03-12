@@ -1,9 +1,7 @@
 #include <ostream>
 #include <string>
 #include <iostream>
-
-#include "enumTipo.h"
-
+/*
 class tokens{
             typeToken classe;//Classe do token
    		    char lexema;//Lexema
@@ -14,9 +12,7 @@ class tokens{
             tokens nextToken();
     };
 
-tokens::nextToken(){
 
-}
 
 
  void tokens::setValues(typeToken name, char lex, int l, int c){
@@ -31,3 +27,5 @@ void tokens::getLexema(){
    // cout<< lexema; 
   //  cout << "asas";
 };
+
+*/

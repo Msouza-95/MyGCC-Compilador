@@ -1,35 +1,34 @@
 
 #include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "buffer.h"
-
-#include "lex.h"
-
-
+#include <fstream>
+#include "lex.cpp"
 
 //#include "token.h"
 
 using namespace std;
  
-#define for(b) for(int i=0;i<b;i++)
+
 
 using namespace std; 
-
-// -----------------buffer.h----------------------------- //
-  
-
-
 
 
 int main()
 {
    
-       openFile("text.txt"); // abre arquivo passado
+       ifstream arq("text.txt"); // abre arquivo passado
 
+      if(!arq.is_open()){
+         cout<< "falha em abrir o arquivo\n";
+         return EXIT_FAILURE; 
+      }else
+      {
+         std::cout<< "---------Iniciado a Analise Lexica-----------\n\n\n";
+         auto Tok = nextToken(arq);
+         std::cout<< "---------Analise Lexica Finalizada-----------\n";
 
-   
+      }
+  // cin.get();
+   arq.close();
     return 0;       
     }
 
