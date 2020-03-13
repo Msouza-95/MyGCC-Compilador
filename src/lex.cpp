@@ -113,11 +113,11 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
                 }
                 else if (isspace(c))
                     break;
-                else 
-                     status = 99; // erro 
+                else
+                    status = 99; // erro
             }
             break;
-      case 1:
+        case 1:
             Tokens.push_back(make_pair(typeToken::ATRIBUICAO, stringTest));
             status = 0;
             Gravar(stringTest, string("Atribuicao"));
@@ -268,12 +268,9 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
             status = 0;
             break;
         default:
-             throw invalid_argument("TA FODA VUH! REFAÇA");
+            throw invalid_argument("TA FODA VUH! REFAÇA");
             break;
         }
-
     }
     return Tokens;
 }
-
-
