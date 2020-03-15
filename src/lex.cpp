@@ -20,9 +20,7 @@ void Gravar(string substr, string output)
 typeToken reservadas(const string &test)
 {
 
-    if (test == "VALOR")
-        return typeToken::VALOR;
-    else if (test == "QUEBRADO")
+    if (test == "QUEBRADO")
         return typeToken::TIPO;
     else if (test == "INTEIRO")
         return typeToken::TIPO;
@@ -187,7 +185,7 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
             else
             {
                 cout << "erro";
-                throw invalid_argument("algo de erro não está certo, verifique o valor");
+                throw invalid_argument("algo de erado não está certo, verifique o valor");
             }
             break;
 
