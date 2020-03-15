@@ -12,10 +12,11 @@ using namespace std;
 using namespace std; 
 
 
+
 int main()
 {
    
-       ifstream arq("text.txt"); // abre arquivo passado
+       ifstream arq("exemple.txt"); // abre arquivo passado
 
       if(!arq.is_open()){
          cout<< "falha em abrir o arquivo\n";

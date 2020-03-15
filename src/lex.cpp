@@ -12,8 +12,8 @@ void Gravar(string substr, string output)
 { // gravar em um arquivo de saida
 
     std::fstream arqOut;
-    arqOut.open("tokens..txt", fstream::out | fstream::app);
-    arqOut << " [" << substr << "]" << output << std::endl;
+    arqOut.open("tokens.txt", fstream::out | fstream::app);
+    arqOut << " [" << substr << "] ->" << output << std::endl;
     arqOut.close();
 }
 
@@ -49,7 +49,7 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
     string stringTest; // subre string de teste
     char c;            // caracter de teste
 
-    while (!arquivo.eof)
+    while (status != EOF)
     {
         switch (status)
         {
@@ -70,7 +70,7 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
                 break;
             case '&':
                 stringTest += c;
-                status = 11;
+                status = 12;
                 break;
             case '|':
                 stringTest += c;
@@ -96,13 +96,20 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
                 stringTest += c;
                 status = 20;
                 break;
+            case '<':
+            case '>':
+                stringTest += c;
+                status = 21;
+                break;
             case EOF:
                 cout << "Leitura finalizada";
+                status= c; 
                 break;
 
             default:
                 if (isalpha(c))
                 {
+
                     stringTest += c;
                     status = 2;
                 }
@@ -120,7 +127,7 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
         case 1:
             Tokens.push_back(make_pair(typeToken::ATRIBUICAO, stringTest));
             status = 0;
-            Gravar(stringTest, string("Atribuicao"));
+            Gravar(stringTest, string(" :  Atribuicao"));
             stringTest.clear();
             break;
 
@@ -134,40 +141,44 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
         case 3:
             c = arquivo.get();
             if (c == ',')
-                status = 6;
-            else if (!isdigit(c))
             {
-                status = 7;
-                stringTest += c;
+                stringTest += c; //back()= '.';
+                status = 6;
             }
-
+            else if (isdigit(c))
+            {
+                stringTest += c;
+                status = 3;
+            }
+            else if (!isdigit(c))
+                status = 10;
             break;
 
-        case 4:
-
-            break;
         case 5:
+        {
             auto result = reservadas(stringTest);
 
             if (result != typeToken::ID)
             {
-                // cout << stringTest << ": PALAVRA RESERVADA" << '\n';
-                Gravar(stringTest, string("PALAVRA RESERVADA"));
+                
+                Gravar(stringTest, string(": PALAVRA RESERVADA"));
             }
             else
             {
-                //cout << stringTest << ": ID" << '\n';
+               
                 Gravar(stringTest, ": ID");
             }
             Tokens.push_back(make_pair(result, stringTest));
 
             stringTest.clear();
             status = 0;
-
-            break;
+            arquivo.unget();
+        }
+        break;
 
         case 6:
             c = arquivo.get();
+            ;
             if (isdigit(c))
             {
                 status = 9; /// teste de valor
@@ -176,15 +187,12 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
             else
             {
                 cout << "erro";
-                throw invalid_argument("algo de erro não está certo, verifique o valo");
+                throw invalid_argument("algo de erro não está certo, verifique o valor");
             }
-            break;
-        case 7:
-
             break;
 
         case 8:
-            //std::cout << "OPERADOR ARITMETICO\n";
+           
             Tokens.push_back(make_pair(typeToken::OPA, stringTest));
             Gravar(stringTest, string("OPERADOR ARITMETICO"));
             stringTest.clear();
@@ -195,22 +203,24 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
             if (!isdigit(c)) // verificar valor
                 status = 10;
             else
-                stringTest += c;
+                status = 3;
+            stringTest += c;
             break;
 
         case 10:
-            //std::cout << stringTest << ": VALOR" << '\n';
-            Gravar(stringTest, string(": VALOR"));
+            
+            arquivo.unget();
+
+            Gravar(stringTest, string("VALOR"));
             status = 0;
             stringTest.clear();
             break;
-        case 11:
-
-            break;
         case 12:
+            c = arquivo.get();
             if (c == '&')
             {
-                //std::cout << stringTest << "operador logico\n";
+                
+                stringTest += c;
                 Tokens.push_back(make_pair(typeToken::OPB, stringTest));
                 Gravar(stringTest, string("OPERADOR LOGICO"));
                 stringTest.clear();
@@ -222,10 +232,11 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
             }
             break;
         case 13:
-
+             c = arquivo.get();
             if (c == '|')
             {
-                //std::cout << stringTest << "operador logico\n";
+                
+                stringTest += c;
                 Tokens.push_back(make_pair(typeToken::OPB, stringTest));
                 Gravar(stringTest, string("OPERADOR LOGICO"));
                 stringTest.clear();
@@ -234,41 +245,40 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
             else
                 throw invalid_argument("era esperado outro | ");
             break;
-        case 14:
 
-            break;
         case 15:
             Tokens.push_back(make_pair(typeToken::NEGACAO, stringTest));
             Gravar(stringTest, string("NEGAÇAO"));
             stringTest.clear();
             status = 0;
             break;
-        case 16:
 
-            break;
         case 17:
-            //std::cout << stringTest << "PONTO E VIRGULA\n";
+           
             Tokens.push_back(make_pair(typeToken::PONTO_VIRGULA, stringTest));
             Gravar(stringTest, string("PONTO E VIRGULA"));
             stringTest.clear();
             status = 0;
             break;
         case 18:
-            //std::cout << stringTest << "Abre parentese\n";
             Tokens.push_back(make_pair(typeToken::ABRE_PARENT, stringTest));
             Gravar(stringTest, string("ABRE PARENTTESE"));
             stringTest.clear();
             status = 0;
             break;
         case 19:
-            //std::cout << stringTest << "FECHA parentese\n";
+            
             Tokens.push_back(make_pair(typeToken::FECHA_PARENT, stringTest));
             Gravar(stringTest, string("FECHA PARENTTESE "));
             stringTest.clear();
             status = 0;
             break;
-        default:
-            throw invalid_argument("TA FODA VUH! REFAÇA");
+
+        case 21:
+            Tokens.push_back(make_pair(typeToken::OPB, stringTest));
+            Gravar(stringTest, string("OPERADOR LOGICO"));
+            stringTest.clear();
+            status = 0;
             break;
         }
     }

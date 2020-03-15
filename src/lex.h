@@ -5,4 +5,4 @@
 #define for(b) for(int i=0;i<b;i++)
 
    typeToken reservadas(const std::string &test);
-   vector<pair<typeToken,string>> nextToken(ifstream &arquivo); 
+   std::vector<std::pair<typeToken,std::string>> nextToken(std::ifstream &arquivo); 
