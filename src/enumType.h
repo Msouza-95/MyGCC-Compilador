@@ -1,8 +1,5 @@
-
-
-enum typeToken{
-    //TERMINAIS  
-SE, 
+enum typeToken{  
+SE, //TERMINAIS 
 FACA,
 ACABOU,
 SENAO,
@@ -33,7 +30,6 @@ COND_SENAO,
 REPETICAO,
 CONDICAO,
 VAR,
-ATRIBUICAO, 
 DECLARACAO,
 EXPRESSAO,
 OPER,

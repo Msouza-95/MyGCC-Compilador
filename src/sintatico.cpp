@@ -1,14 +1,19 @@
-#include "enumType.h"
+#include <iostream>
+#include <fstream>
 #include "sintatico.h"
 
-sintatico::sintatico()
-{
+using namespace std;
 
+void sintatico(const vector<pair<typeToken, string>> )
+{  
+    std::stack<typeToken> pilha; // pilha de controle  
+    std::map<typeToken, std::map<typeToken, int>> tabela; // tabela parser 
+   
     // iniciando a pilha com $ = marca final da pilha e PROGRAMA = gramatica inicial
     pilha.push(typeToken::$);
     pilha.push(typeToken::PROGRAMA);
     int p = 0;
-
+    
     // iniciando a tabela parser com suas devidas regras
 
     // Todo esse bloco recebe a regra 1 = <PROGRAMA>::= <comando> <PROGRAMATT>
@@ -90,18 +95,18 @@ sintatico::sintatico()
 
     while (pilha.size() > 0)
     {
-        if (tokens(*p) == pilha.top())
+        if (pilha.top() == pilha.top())
         {
-            std::cout<<"massa bateu: " << tokens(*p)<<endl;
+           // std::cout<<"massa bateu: " << tokens;
             p++;
             pilha.pop();
         }
         else
         {
 
-            std::cout<< "não bateu vamos olhar na tabela regra"<<endl; 
+            std::cout<< "não bateu vamos olhar na tabela regra"; 
             pilha.pop();  
-            switch (expression)
+            switch ( p)
             {
             case 1: //<PROGRAMA>::= <comando> <PROGRAMATT>
                 pilha.push(typeToken::PROGRAMATT);
@@ -212,9 +217,13 @@ sintatico::sintatico()
 
             default:
                 std::cout<<"erro sintatico";
-                return 0; 
+               
                 break;
             }
         }
     }
 }
+
+/*sintatico::proxToken(){
+
+}*/

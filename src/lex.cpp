@@ -124,6 +124,7 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
             break;
         case 1:
             Tokens.push_back(make_pair(typeToken::ATRIBUICAO, stringTest));
+            
             status = 0;
             Gravar(stringTest, string(" :  Atribuicao"));
             stringTest.clear();
