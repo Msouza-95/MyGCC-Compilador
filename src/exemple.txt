@@ -5,7 +5,7 @@ SE id FACA
    LOGICO c;
 ACABOU
 QUEBRADO k;
-#INTEIRO test;
+INTEIRO test;
 INTEIRO trinta;
 INTEIRO oito;
 INTEIRO quatro;

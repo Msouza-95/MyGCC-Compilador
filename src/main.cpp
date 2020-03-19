@@ -31,10 +31,10 @@ int main()
         std::cout << "---------Analise Lexica Finalizada-----------"<<endl;
 
         auto sint= sintatico(Tok);
+        if(sint==1)
+        std::cout << "---------Parabens seu programa passou no analise lexico e sintatica -----------"<<endl;
+    
 
-        /*for(Tok.size()){
-              cout<<Tok[i].first<<endl; 
-            } */
     }
 
     // cin.get();
@@ -145,7 +145,7 @@ int sintatico(vector<pair<typeToken, string>> &tok)
         if (tok[i].first == pilha.top())
         {
             std::cout << "massa bateu: " << endl;
-            std::cout << "tirei = " << pilha.top()<< endl;
+            //std::cout << "tirei = " << pilha.top()<< endl;
             pilha.pop();
             i++;
         }
@@ -155,60 +155,60 @@ int sintatico(vector<pair<typeToken, string>> &tok)
             std::cout << "nao bateu vamos olhar na tabela regra" << endl;
             
             const auto topo = pilha.top();
-            cout << "topo: " << topo<<endl; 
+           // cout << "topo: " << topo<<endl; 
             const auto prod = tabela[topo][tok[i].first];
 
-            cout << "tok: " << tok[i].first << endl;
-            cout << " producao : " << prod << endl;
-            std::cout << "tirei = " << pilha.top()<< endl;
+            // cout << "tok: " << tok[i].first << endl;
+         //   cout << " producao : " << prod << endl;
+          //  std::cout << "tirei = " << pilha.top()<< endl;
             pilha.pop();
-             cout << " posicao do vector : " << i << endl;
+             //cout << " posicao do vector : " << i << endl;
             switch (prod)
             {
             case 1: //<PROGRAMA>::= <comando> <PROGRAMATT>
                 pilha.push(typeToken::PROGRAMATT);
                 pilha.push(typeToken::COMANDO);
-                cout << "case : 1" << endl;
+                
                 break;
             case 2: // <PROGRAMATT>::= <comando> <PROGRAMATT>
                 pilha.push(typeToken::PROGRAMATT);
                 pilha.push(typeToken::COMANDO);
-                cout << "case : 2" << endl;
+
                 break;
             case 3: //<bloco>::= <PROGRAMA>
                 pilha.push(typeToken::PROGRAMA);
-                cout << "case : 3" << endl;
+                
                 break;
             case 4: //<comando>::= <Condicional>
                 pilha.push(typeToken::CONDICIONAL);
-                cout << "case : 4" << endl;
+                
                 break;
             case 5: //<comando>::= <Repeticao>
                 pilha.push(typeToken::REPETICAO);
-                cout << "case : 5" << endl;
+             
                 break;
             case 6: //<comando>::= <VAR>;
                 pilha.push(typeToken::PONTO_VIRGULA);
                 pilha.push(typeToken::VAR);
-                cout << "case : 6" << endl;
+       
                 break;
             case 7: //<Condicional>::= <se><senao>
                 pilha.push(typeToken::COND_SENAO);
                 pilha.push(typeToken::COND_SE);
-                cout << "case : 7" << endl;
+                
                 break;
             case 8: //<se>::=SE <condicao>FACA <bloco>
                 pilha.push(typeToken::BLOCO);
                 pilha.push(typeToken::FACA);
                 pilha.push(typeToken::CONDICAO);
                 pilha.push(typeToken::SE);
-                cout << "case : 8" << endl;
+               
                 break;
             case 9: //<se>::=<senao>::=SENAO <bloco>ACABOU
                 pilha.push(typeToken::ACABOU);
                 pilha.push(typeToken::BLOCO);
                 pilha.push(typeToken::SENAO);
-                cout << "case : 9" << endl;
+               
                 break;
             case 10: // <senao>::= ACABOU
                 pilha.push(typeToken::ACABOU);
