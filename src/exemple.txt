@@ -1,28 +1,19 @@
 INTEIRO id;
-LOGICO x;
-QUEBRADO test;
-test = (3+7)+3;
-test = 3+7*8+4;
-test = -3*4+2+2+(3+7*8)-320;
 id = 1 && 0;
-x = 1;
-test = 33,3*3 + 5;
-SE !id FACA
-   id = 2;
-SENAO
-   id = 3;
-ACABOU
-SE !id && x FACA
+SE id FACA
+   id = 4;
    LOGICO c;
-   QUEBRADO k;
-   SE x FACA
-      k = 32312314,42331 * 321939129301 / (test * ( 54));
-   ACABOU
-   c = 0;
 ACABOU
+QUEBRADO k;
+#INTEIRO test;
 INTEIRO trinta;
-trinta = 30;
-ENQUANTO trinta || id FACA
-   trinta = trinta + 1;
+INTEIRO oito;
+INTEIRO quatro;
+INTEIRO tres;
+id = 3,1415;
+k = 32312314,42331 * 321939129301 / (test * ( 54));
+trinta = 0;
+ENQUANTO trinta FACA
+   oito = quatro;
    INTEIRO tres;
 ACABOU

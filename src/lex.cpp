@@ -209,7 +209,7 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
         case 10:
             
             arquivo.unget();
-
+            Tokens.push_back(make_pair(typeToken::VALOR, stringTest));
             Gravar(stringTest, string("VALOR"));
             status = 0;
             stringTest.clear();
@@ -281,5 +281,6 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
             break;
         }
     }
+    Tokens.push_back(make_pair(typeToken::$, "FIM"));
     return Tokens;
 }
