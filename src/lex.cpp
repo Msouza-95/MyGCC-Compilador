@@ -279,6 +279,11 @@ vector<pair<typeToken, string>> nextToken(ifstream &arquivo)
             stringTest.clear();
             status = 0;
             break;
+
+            default:
+                throw invalid_argument(" lexema desconhecido- erro ");
+                
+                break; 
         }
     }
     Tokens.push_back(make_pair(typeToken::$, "FIM"));

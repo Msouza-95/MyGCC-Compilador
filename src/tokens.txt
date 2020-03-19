@@ -518,3 +518,73 @@
  [tres] ->: ID
  [;] ->PONTO E VIRGULA
  [ACABOU] ->: PALAVRA RESERVADA
+ [INTEIRO] ->: PALAVRA RESERVADA
+ [id] ->: ID
+ [;] ->PONTO E VIRGULA
+ [id] ->: ID
+ [=] -> :  Atribuicao
+ [1] ->VALOR
+ [&&] ->OPERADOR LOGICO
+ [0] ->VALOR
+ [;] ->PONTO E VIRGULA
+ [SE] ->: PALAVRA RESERVADA
+ [id] ->: ID
+ [FACA] ->: PALAVRA RESERVADA
+ [id] ->: ID
+ [=] -> :  Atribuicao
+ [4] ->VALOR
+ [;] ->PONTO E VIRGULA
+ [LOGICO] ->: PALAVRA RESERVADA
+ [c] ->: ID
+ [;] ->PONTO E VIRGULA
+ [ACABOU] ->: PALAVRA RESERVADA
+ [QUEBRADO] ->: PALAVRA RESERVADA
+ [k] ->: ID
+ [;] ->PONTO E VIRGULA
+ [INTEIRO] ->: PALAVRA RESERVADA
+ [test] ->: ID
+ [;] ->PONTO E VIRGULA
+ [INTEIRO] ->: PALAVRA RESERVADA
+ [trinta] ->: ID
+ [;] ->PONTO E VIRGULA
+ [INTEIRO] ->: PALAVRA RESERVADA
+ [oito] ->: ID
+ [;] ->PONTO E VIRGULA
+ [INTEIRO] ->: PALAVRA RESERVADA
+ [quatro] ->: ID
+ [;] ->PONTO E VIRGULA
+ [INTEIRO] ->: PALAVRA RESERVADA
+ [id] ->: ID
+ [;] ->PONTO E VIRGULA
+ [id] ->: ID
+ [=] -> :  Atribuicao
+ [1] ->VALOR
+ [&&] ->OPERADOR LOGICO
+ [0] ->VALOR
+ [;] ->PONTO E VIRGULA
+ [SE] ->: PALAVRA RESERVADA
+ [id] ->: ID
+ [FACA] ->: PALAVRA RESERVADA
+ [id] ->: ID
+ [=] -> :  Atribuicao
+ [4] ->VALOR
+ [;] ->PONTO E VIRGULA
+ [LOGICO] ->: PALAVRA RESERVADA
+ [c] ->: ID
+ [;] ->PONTO E VIRGULA
+ [ACABOU] ->: PALAVRA RESERVADA
+ [QUEBRADO] ->: PALAVRA RESERVADA
+ [k] ->: ID
+ [;] ->PONTO E VIRGULA
+ [INTEIRO] ->: PALAVRA RESERVADA
+ [test] ->: ID
+ [;] ->PONTO E VIRGULA
+ [INTEIRO] ->: PALAVRA RESERVADA
+ [trinta] ->: ID
+ [;] ->PONTO E VIRGULA
+ [INTEIRO] ->: PALAVRA RESERVADA
+ [oito] ->: ID
+ [;] ->PONTO E VIRGULA
+ [INTEIRO] ->: PALAVRA RESERVADA
+ [quatro] ->: ID
+ [;] ->PONTO E VIRGULA
